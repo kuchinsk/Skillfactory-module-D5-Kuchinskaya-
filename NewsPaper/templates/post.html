@@ -1,0 +1,12 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% block title %}
+News:
+{% endblock title %}
+
+{% block content %}
+<h3>{{ post.title|censor }}</h3>
+<p>{{ post.timePost }}</p>
+<p>{{ post.textPost|censor }}</p>
+<p> {{ post.author }} {{ post.timePost|date:'d.m.Y' }} <a href="{% url 'news:post_edit' post.id %}">Update </a><a href="{% url 'news:post_delete' post.id %}"> Delete</a></p>
+{% endblock content %}
